@@ -26,31 +26,11 @@ namespace HerculesLabors.Items
 
         private static string HadesOne(char c)
         {
-            if (c == 'a')
-            {
-                return "4";
-            }
-            
-            if (c == 'A')
-            {
-                return "4";
-            }
-            
-            if (c == 'o')
-            {
-                return "0";
-            }
-
-            if (c == 'O')
-            {
-                return "0";
-            }
-
-            if (c == 'f')
-            {
-                return "f";
-            }
-
+            if (c == 'a') return "4";
+            if (c == 'A') return "4";
+            if (c == 'o') return "0";
+            if (c == 'O') return "0";
+            if (c == 'f') return "f";
             return "f";
         }
 
@@ -58,14 +38,18 @@ namespace HerculesLabors.Items
         {
             if (c == '') return '-'.ToString();
             if (c == '-') return '_'.ToString();
-            {
-                
-            }
+            return c.ToString();
         }
 
         private static string PoseidonOne(char c)
         {
-            throw new NotImplementedException();
+            string str = "";
+            for (int i = 0; i < c%4; i++)
+            {
+                str += c;
+            }
+
+            return str;
         }
 
         private static string HephaestusOne(char c)
