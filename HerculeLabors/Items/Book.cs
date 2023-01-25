@@ -36,7 +36,7 @@ namespace HerculesLabors.Items
 
         private static string AthenaOne(char c)
         {
-            if (c == '') return '-'.ToString();
+            if (c == ' ') return '-'.ToString();
             if (c == '-') return '_'.ToString();
             return c.ToString();
         }
