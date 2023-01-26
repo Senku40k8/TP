@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace HerculesLabors.Items
 {
@@ -54,22 +55,74 @@ namespace HerculesLabors.Items
 
         private static string HephaestusOne(char c)
         {
-            throw new NotImplementedException();
+            if ((65 < c && c > 90) || (97 < c && c > 172))
+            {
+                return c.ToString();
+            }
+
+            return "*Cling**Cling*";
         }
 
         private static string Anyone(char c)
         {
-            throw new NotImplementedException();
+            return c.ToString();
         }
 
         public static Lexicon GetLexicon(string god)
         {
-            throw new NotImplementedException();
+            int i = 0;
+            string str = "";
+            while (i < god.Length && ZeusOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return ZeusOne;
+            }
+
+            i = 0;
+            while (i < god.Length && HermesOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return HermesOne;
+            }
+            
+            i = 0;
+            while (i < god.Length && HadesOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return HadesOne;
+            }
+            
+            i = 0;
+            while (i < god.Length && AthenaOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return AthenaOne;
+            }
+            
+            i = 0;
+            while (i < god.Length && PoseidonOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return PoseidonOne;
+            }
+            
+            i = 0;
+            while (i < god.Length && HephaestusOne(god[i]) == god[i].ToString())
+            {
+                i++;
+                if(i == god.Length) return HephaestusOne;
+            }
+
+            return Anyone;
         }
 
         public void PrintBook(string data)
         {
-            throw new NotImplementedException();
+            foreach (var i in data)
+            {
+                Console.Write(Lexic(data[i]));
+            }
+            Console.WriteLine("");
         }
 
         private void UpgradeBooks()
