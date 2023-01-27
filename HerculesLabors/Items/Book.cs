@@ -11,18 +11,26 @@ namespace HerculesLabors.Items
 
         public Book(string name, Lexicon lexic, int weight)
         {
-            throw new NotImplementedException();
+            Name = name;
+            Weight = weight;
         }
 
         private static string ZeusOne(char c)
         {
-            string str = c.ToString();
-            return str.ToUpper();
+            if (c > 96 && c < 123)
+            {
+                return "" + (c - 32);
+            }
+            //string str = c.ToString();
+            //return str.ToUpper();
+            return "";
         }
 
         private static string HermesOne(char c)
         {
-            return ((c % 2) + 48).ToString();
+            if (c % 2 == 0) return 0.ToString();
+            return 1.ToString();
+            //return ((c % 2) + 48).ToString();
         }
 
         private static string HadesOne(char c)
@@ -55,7 +63,7 @@ namespace HerculesLabors.Items
 
         private static string HephaestusOne(char c)
         {
-            if ((65 < c && c > 90) || (97 < c && c > 172))
+            if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
             {
                 return c.ToString();
             }
@@ -111,7 +119,6 @@ namespace HerculesLabors.Items
                 i++;
                 if(i == god.Length) return HephaestusOne;
             }
-
             return Anyone;
         }
 
@@ -119,7 +126,8 @@ namespace HerculesLabors.Items
         {
             foreach (var i in data)
             {
-                Console.Write(Lexic(data[i]));
+                Console.Write(Lexic.Invoke);
+                //Console.Write(Lexic(data[i].));
             }
             Console.WriteLine("");
         }
@@ -128,7 +136,7 @@ namespace HerculesLabors.Items
         {
             if (Lexic == Anyone)
             {
-                int mod = Name.Length;
+                int mod = Name.Length%6;
                 if (mod == 0)
                 {
                     Name = "Book of Zeus";
