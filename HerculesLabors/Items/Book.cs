@@ -71,7 +71,6 @@ namespace HerculesLabors.Items
         public static Lexicon GetLexicon(string god)
         {
             int i = 0;
-            string str = "";
             while (i < god.Length && ZeusOne(god[i]) == god[i].ToString())
             {
                 i++;
@@ -127,17 +126,55 @@ namespace HerculesLabors.Items
 
         private void UpgradeBooks()
         {
-            throw new NotImplementedException();
+            if (Lexic == Anyone)
+            {
+                int mod = Name.Length;
+                if (mod == 0)
+                {
+                    Name = "Book of Zeus";
+                    Lexic = ZeusOne;
+                }
+                
+                else if (mod == 1)
+                {
+                    Name = "Book of Hermes";
+                    Lexic = HermesOne;
+                }
+                
+                else if (mod == 2)
+                {
+                    Name = "Book of Hades";
+                    Lexic = HadesOne;
+                }
+                
+                else if (mod == 3)
+                {
+                    Name = "Book of Athena";
+                    Lexic = AthenaOne;
+                }
+                
+                else if (mod == 4)
+                {
+                    Name = "Book of Poseidon";
+                    Lexic = PoseidonOne;
+                }
+                
+                else if (mod == 5)
+                {
+                    Name = "Book of Hephaestus";
+                    Lexic = HephaestusOne;
+                }
+            }
         }
 
         public override Upgrade UpgradeMe()
         {
-            throw new NotImplementedException();
+            return UpgradeBooks;
         }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return Name + ", " + Weight;
         }
     }
 }
